@@ -1,46 +1,64 @@
-Employee File Management
-Problem Statement
+# Employee File Management
 
-Develop a small Python application that maintains employee information. Employee details are stored in a file and later read to generate a simple report:
+## Problem Statement
 
-Store Employee ID, Name, Role and Salary in employees.txt
-Read the employee information from the file
-Display all employees
-Show employees whose salary is greater than ₹50,000
-Find the employee with the highest salary
-Count how many employees belong to each role
-Handle the case where the file does not exist
-Approach / Logic Used
-Create an Employee class with employee_id, name, role and salary, and a display_details() method to print them.
-add_employee() appends one employee to employees.txt as a comma-separated line. Opening the file in append mode also creates it if it does not exist.
-read_employees() opens the file, skips blank lines, splits each line on commas and creates an Employee object for it. If the file is missing, it catches FileNotFoundError and prints an error message instead of crashing.
-Display every employee using display_details() in a for loop.
-find_employees_above_salary() collects employees whose salary is above the threshold (₹50,000).
-find_highest_salary() compares salaries in a loop and keeps the highest-paid employee.
-find_employees_by_role() counts employees per role in a dictionary. The result is printed in alphabetical order of role.
+Develop a small Python application that maintains employee information. Employee details are stored in a file and later read to generate a simple report.
 
-All file operations use a context manager (with open()), so the file is closed automatically.
+### Requirements
 
-How to Run
-Install Python 3.6 or later.
-Open a terminal in the project folder.
-Run:
-bash
-   python employee_manager.py
+- Store Employee ID, Name, Role, and Salary in `employees.txt`
+- Read employee information from the file
+- Display all employees
+- Show employees whose salary is greater than ₹50,000
+- Find the employee with the highest salary
+- Count how many employees belong to each role
+- Handle the case where the file does not exist
 
-On Windows, if python is not recognised, use py employee_manager.py.
+## Approach / Logic Used
 
-Make sure employees.txt is in the same folder as the script. If it is missing, the program prints an error and shows no records.
+- Create an `Employee` class with `employee_id`, `name`, `role`, and `salary` attributes.
+- Add a `display_details()` method to print the employee information.
+- Use `add_employee()` to append one employee record to `employees.txt` as a comma-separated line.
+- Use `read_employees()` to open the file, skip blank lines, split each line on commas, and create an `Employee` object for each record.
+- Catch `FileNotFoundError` and print a clear error message instead of crashing.
+- Display every employee using `display_details()` in a loop.
+- Use `find_employees_above_salary()` to collect employees whose salary exceeds the threshold.
+- Use `find_highest_salary()` to compare salaries and keep the highest paid employee.
+- Use `find_employees_by_role()` to count employees by role and print the results in alphabetical order.
+- Use a context manager (`with open(...)`) so files are automatically closed.
 
-Sample Input
+## How to Run
 
-Contents of employees.txt (Employee ID, Name, Role, Salary):
+1. Install Python 3.6 or later.
+2. Open a terminal in the project folder.
+3. Run the application:
 
+```bash
+python main.py
+```
+
+On Windows, if `python` is not recognized, use:
+
+```bash
+py main.py
+```
+
+> Make sure `employees.txt` is in the same folder as the script. If it is missing, the program prints an error and shows no records.
+
+## Sample Input
+
+Contents of `employees.txt`:
+
+```text
 101,Rahul,Python Developer,50000
 102,Anjali,Tester,45000
 103,John,Developer,60000
 104,Priya,Tester,48000
-Sample Output
+```
+
+## Sample Output
+
+```text
 ===== Employee Details =====
 
 101 - Rahul - Python Developer - ₹50000
@@ -59,7 +77,10 @@ Employee Count by Role:
 Developer: 1
 Python Developer: 1
 Tester: 2
+```
 
-If employees.txt does not exist when it is read:
+If `employees.txt` does not exist when it is read:
 
+```text
 Error: employees.txt was not found.
+```
